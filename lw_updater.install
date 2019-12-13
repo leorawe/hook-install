@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Implements lw_updater_install()
+ */
+
+/**
+ * Update introduction field to plain text by moving content to new field.
+ */
+function lw_updater_install() {
+  $articles = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['type' => 'article']);
+  foreach ($articles as $article) {
+    $article->field_intro->value = strip_tags($article->field_introduction->value);
+    $article->save();
+  }
+}

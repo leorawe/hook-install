@@ -1,0 +1,5 @@
+name: 'LW Update Installer'
+type: module
+description: 'Update fields by copying field values with hook_install'
+core: 8.x
+package: 'lw'
